@@ -1,0 +1,67 @@
+1.What is datatype(this is first question asked b y all interviewer)
+	
+ dict, list, set and frozenset, and tuple
+
+2.list, tuple, dict diff
+
+	LIST  : A list can store a sequence of objects in a certain order such that you can index into the list, 
+		    or iterate over the list. List is a mutable type meaning that lists can be modified after they have been created.
+	TUPLE : A tuple is similar to a list except it is immutable. There is also a semantic difference between a list and a tuple
+	DICT  : A dictionary is a key-value store. It is not ordered and it requires that the keys are hashable. It is fast for lookups by key	
+	
+	SET : unordered Unique elements, allows union intersectione etc
+	
+	MUTABLE : LIST, DICT, SET, BYTE ARRAY
+
+	IMMUTABLE:TUPLE, STRING,FROZENSET
+
+
+3.list sorting without using generic function
+
+4.can we use list as key in dict?
+	     
+	It can be done without really breaking any of the requirements, but it leads to unexpected behavior. 	
+
+5.Dict sorting both key and value sorting
+
+6.what is Listcomprehension and where you use it?
+
+	List comprehensions provide a concise way to create lists. Common applications are to make new lists where each element is the result of some operations applied to each member of another sequence or iterable, or
+
+7.What is iterator, generator?
+
+	
+	Generator : Generator functions are ordinary functions defined using yield instead of return. When called, a generator function returns a generator object, which is a kind of iterator - it has a next() method. When you call next(), the next value yielded by the generator function is returned.
+
+8.How to get traceback? expalin
+
+9.how to write class
+
+10.what is __init__
+	
+	The __init__ function is called a constructor, or initializer, and is automatically called when you create a new instance of a class. 
+
+11.what is self
+	self as it suggests, refers to itself- the object which has called the method.
+
+12.wts is constructor
+
+13.wts decorator ? How it works? How to write custom decorator?
+
+14.wts is __init__ and __new
+
+	__new__ is the first step of instance creation. It's called first, and is responsible for returning a new instance of your class.
+
+15.wts is super function in python and where you ill use
+
+16.hv u used set() ? if so wr (Note that Set() depreciated in python 2.6)
+
+17.single linked list?
+
+
+20. Multithreading and multiprocessing in python
+
+	threading limitations of Python
+
+
+21. When you see a method like __this__, the rule is simple: don't call it. Why? Because it means it's a method python call

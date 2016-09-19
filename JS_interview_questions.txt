@@ -1,0 +1,47 @@
+
+1. How to Declate JS object
+
+	object literal
+
+		var obj = { property_1:   value_1,   // property_# may be an identifier...
+            2:            value_2,
+            }
+
+	The new Operator
+
+		function Car(make, model, year) {
+		this.make = make;
+		this.model = model;
+		this.year = year;
+		}
+	var car1 = new Car("Eagle", "Talon TSi", 1993, rand);		
+
+	The Object() Constructor
+
+		var fish = Object.create(Animal);
+		fish.type = "Fishes";	
+
+2. $document.ready vs window.load
+
+	jQuery $document.ready function event executes a bit earlier than window.onload and is called once the DOM(Document object model) is loaded on your page. It will not wait for the images, frames to get fully load. A word of caution on using $(document).ready() with Internet Explorer	
+	
+3. How to access cookie
+
+	var x = document.cookie;
+
+	document.cookie = "username=John Doe";
+
+4. Delete a Cookie with JavaScript
+	Deleting a cookie is very simple. Just set the expires parameter to a passed date:
+		
+5. What is new operator
+	The new operator creates an instance of a user-defined object type or of one of the built-in object types that has a constructor function.
+		
+6. WHat is typeof Array
+
+	The typeof operator returns "object" for arrays because in JavaScript arrays are objects.
+
+7. Difference Between Undefined and Null		
+	
+	typeof undefined             // undefined
+	dtypeof null    

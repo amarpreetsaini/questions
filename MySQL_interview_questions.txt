@@ -1,0 +1,7 @@
+
+    1.If we modify a models, then error will arise while accessing admin? Hw can we fix it? data shoouldn't miss from table
+    2.if the modified models filed is primary then how can we do that?
+    3.if the primary key is override then how can we do it?
+    4.if the primary key is from another table as foregin key, then hwo can we do it?
+    5.DB master, slave,cluster?
+    6.Table joining query

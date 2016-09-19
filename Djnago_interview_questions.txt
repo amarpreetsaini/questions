@@ -1,0 +1,176 @@
+1.How django works (work flow)
+
+	One way to describe Django is as a set of software components that aid in the receiving of web requests,
+	and the returning of web responses.
+	
+	The entry point to Django applications are URLs. Django developers have full control of what URLs are available in their application
+		
+	Django Views are custom Python code that get executed when a certain URL is accessed.
+	
+	View send the web response to template pages These pages are created using Django's templating system.
+	
+2.What is __init__.py inisde application folder?
+
+	The __init__.py files are required to make Python treat the directories as containing packages; 
+	this is done to prevent directories with a common name, such as string , 
+	from unintentionally hiding valid modules that occur later (deeper) on the module search path
+
+3.What does manage.py does
+	
+    It puts your project’s package on sys.path.
+    It sets the DJANGO_SETTINGS_MODULE environment variable so that it points to your project’s settings.py file.
+
+4.How you will add extra function/feature in admin part
+
+	Modify admin.py, Instanciate ModelAdmin class and have them registered admin.site.register
+
+5.Have you customized admin style?
+	
+	
+
+6.What are all middleware you used and whats the purpose ot it?
+
+	Middleware is a framework of hooks into Django’s request/response processing. 
+	Each middleware component is responsible for doing some specific function. 
+	For example, Django includes a middleware component, AuthenticationMiddleware, that associates users with requests using sessions.
+
+	During the request phase, before calling the view, Django applies middleware in the order it’s defined in MIDDLEWARE, top-down.
+
+7.How you used session ? How can we handle session expire time ?
+	The session framework lets you store and retrieve arbitrary data on a per-site-visitor basis. 
+	It stores data on the server side and abstracts the sending and receiving of cookies. 
+	Cookies contain a session ID – not the data itself (unless you’re using the cookie based backend)
+	
+	SESSION_EXPIRE_AT_BROWSER_CLOSE	
+	SESSION_COOKIE_AGE
+
+8.How you will write django complex query?
+
+	You need Q objects for & and OR operators and the range field lookup type
+	
+9.Django group_by query	
+
+	We use django Aggresstion over queryset
+	for groupby we use values()
+
+10.What is signals and how to use it? What are two important parameter in signals?
+
+	signals allow certain senders to notify a set of receivers that some action has taken place. 
+	They’re especially useful when many pieces of code may be interested in the same events.
+
+	signals.py file and import in apps.py file
+	
+
+11.Have you write templatetags? Whats the use of it?
+
+	Templatetags are used to address the presentation logic needs of your application.
+
+	Create  templatetags directory and create __init__.py file inside
+	
+	from django import template
+	register = template.Library()
+	
+12.Form inheritance	
+	As with basic forms, you can extend and reuse ModelForms by inheriting them. 
+	This is useful if you need to declare extra fields or extra methods on a parent class for use in a number of forms derived from models.	
+			
+13.Model inheritance	
+	
+	Model inheritance in Django works almost identically to the way normal class inheritance works in Python, 
+	but the basics at the beginning of the page should still be followed.
+	That means the base class should subclass django.db.models.Model.
+
+	Abstract Class (abstract = True)
+	Multi-table inheritance
+	Proxy models - doesnot create table
+
+14.How to get all logged-in user list or count ?
+
+	You could query the Session model for non-expired sessions, then turn the session data into users. 
+	Once you've got that you could turn it into a template tag which could render the list on any given page
+
+15.what are all reusable application u used in django prjt
+	Django-facebook, Django-friends
+
+16.save dynamic data without using DB/file.	
+	Caching ?
+
+17.How you are requesting ajax in django? How it works?
+	dajax ?
+	
+18.how u will access a particular block in child html?
+	{% extends "base.html" %}
+	
+19.how u are debugging applicaiton?
+	
+	pdb, django_debug_toolbar
+
+20.logging module have u used ?
+	initiate logging in setting
+	
+21.What is message framework and explain it
+	For this, Django provides full support for cookie- and session-based messaging, for both anonymous and authenticated users. 
+	The messages framework allows you to temporarily store messages in one request and retrieve them 
+	for display in a subsequent request (usually the next one). 
+	Every message is tagged with a specific level that determines its priority (e.g., info, warning, or error).
+
+22.what are modules in django?
+	Modules are reuable apps that can be used to implement some feature
+
+23.What is serialization and why we are using it?
+	Serializers allow complex data such as querysets and model instances to be converted to native Python datatypes that can then be easily rendered into JSON, XML or other content types. Serializers also provide deserialization, allowing parsed data to be converted back into complex types, after first validating the incoming data.
+	from django.core import serializers
+
+24.How you are testing your application?
+	Wrote basic testcases in views.py file .
+	for browser based used robot framework with selinium
+
+25.How you are deploying applicaiton with apache?
+
+
+26.Whats the difference between mod_python & mod_wsgi
+
+31. How to modify model without affecting datas?
+	dumpdata and loaddata 
+	
+32. What are Abstract base classes ?
+
+	Abstract base classes are useful when you want to put some common information into a number of other models. You write your base class and put abstract=True in the Meta class. This model will then not be used to create any database table. Instead, when it is used as a base class for other models, its fields will be added to those of the child class.	
+
+33. How Django knows to UPDATE vs. INSERT ?
+	If the object’s primary key attribute is set to a value that evaluates to True Django executes an UPDATE.
+	If the object’s primary key attribute is not set or if the UPDATE didn’t update anything, Django executes an INSERT.
+	
+	force_insert=True or force_update=True parameters to the save()
+
+34. What is CSRF ?
+
+	The CSRF middleware and template tag provides easy-to-use protection against Cross Site Request Forgeries. This type of attack occurs when a malicious website contains a link, a form button or some JavaScript that is intended to perform some action on your website, using the credentials of a logged-in user who visits the malicious site in their browser. A related type of attack, ‘login CSRF’, where an attacking site tricks a user’s browser into logging into a site with someone else’s credentials, is also covered.
+
+35. *Args and **Kwargs
+
+	*args is used to send a non-keyworded variable length argument list to the function
+
+	**kwargs allows you to pass keyworded variable length of arguments to a function. 
+	  You should use **kwargs if you want to handle named arguments in a function
+
+36. what is select_related in queryset ?
+	
+	Returns a QuerySet that will “follow” foreign-key relationships, selecting additional related-object data when it executes its query. This is a performance booster which results in a single more complex query but means later use of foreign-key relationships won’t require database queries.
+
+37. How Django processes a request ?
+
+	Django determines the root URLconf module to use. Ordinarily, this is the value of the ROOT_URLCONF setting, but if the incoming HttpRequest object has a urlconf attribute (set by middleware), its value will be used in place of the ROOT_URLCONF setting.
+
+	Django loads that Python module and looks for the variable urlpatterns. This should be a Python list of django.conf.urls.url() instances.
+
+	Django runs through each URL pattern, in order, and stops at the first one that matches the requested URL.
+
+	Once one of the regexes matches, Django imports and calls the given view, which is a simple Python function (or a class-based view). The view gets passed the following arguments:
+
+	If no regex matches, or if an exception is raised during any point in this process, Django invokes an appropriate error-handling view. See Error handling below.
+
+28. Managers
+
+	A Manager is the interface through which database query operations are provided to Django models. At least one Manager exists for every model in a Django application.
+
