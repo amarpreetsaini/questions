@@ -1,3 +1,5 @@
+Python Django Interview Questions :
+
 1.How django works (work flow)
 
 	One way to describe Django is as a set of software components that aid in the receiving of web requests,
